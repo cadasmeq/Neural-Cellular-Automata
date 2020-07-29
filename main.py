@@ -36,7 +36,7 @@ optimizer = optim.Adam(model.parameters(), lr=lr)
 scheduler = StepLR(optimizer, step_size=500, gamma=0.1)
 L2 = nn.MSELoss()
 
-img = ".input/owl.png"
+img = "./input/owl.png"
 target = batch_target(img, b).to(device)
 x = call_grid(tensor_format).to(device)
 

@@ -3,6 +3,8 @@ import torch.nn as nn
 from torch.nn import functional as F
 from functions.functions import *
 
+device = torch.device('cuda:0')
+
 class NCA(nn.Module):
     def __init__(self, n_channel, n_filter):
         super(NCA, self).__init__()

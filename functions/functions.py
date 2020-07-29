@@ -11,6 +11,8 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
+device = torch.device('cuda:0')
+
 def call_grid(size):
     x = torch.zeros(size).type(torch.float32)
     b, c, h, w = size
@@ -67,9 +69,9 @@ def detect_alives_cells(output):
 
 def tensorMinMax(x, name, debug):
     if debug:
-    print("[{0}]\tMin: {1}, Max: {2}".format(name.capitalize(), x.min(), x.max()))
+        print("[{0}]\tMin: {1}, Max: {2}".format(name.capitalize(), x.min(), x.max()))
     else:
-    pass
+        pass
 
 def batch_target(file_path, batch):
     #img = cv2.imread(file_path, -1) / 255.0
@@ -79,17 +81,17 @@ def batch_target(file_path, batch):
     return target
 
 def plot_tensor(x, title, default="Tensor"):
-  if default == "Tensor":
-    b, c, h, w = x.size()
-    x = x.permute(0,2,3,1)
-    x = x.detach().cpu().numpy()
-    plt.title(str(title).upper())
-    plt.imshow(x[0,:,:,:4])
+    if default == "Tensor":
+        b, c, h, w = x.size()
+        x = x.permute(0,2,3,1)
+        x = x.detach().cpu().numpy()
+        plt.title(str(title).upper())
+        plt.imshow(x[0,:,:,:4])
 
-  elif default == "Image":
-    img = cv2.imread(x, -1)
-    plt.title(str(title).upper())
-    plt.imshow(img)
+    elif default == "Image":
+        img = cv2.imread(x, -1)
+        plt.title(str(title).upper())
+        plt.imshow(img)
 
 def unbatch_tensor(x, default="Tensor"):
     b, c, h, w = x.size()
