@@ -7,11 +7,23 @@ from torch.optim.lr_scheduler import StepLR
 import os
 import cv2
 import numpy as np
+import pandas as pd
 from PIL import Image
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+import uuid
 
 device = torch.device('cuda:0')
+def gen_id():
+    return str(uuid.uuid4().fields[-1])[:6]
+
+def load_model(model, weight_folder):
+    model.load_state_dict(torch.load(weight_folder))
+    model.eval()
+    return "Model loaded."
+
+def exporting_result():
+    return ""
 
 def call_grid(size):
     x = torch.zeros(size).type(torch.float32)
