@@ -1,9 +1,10 @@
 import torch
 import torch.nn as nn
+import numpy as np
 from torch.nn import functional as F
-from functions.functions import *
+from functions.functions import check_cuda,perception_2, stochastic_update, detect_alives_cells
 
-device = torch.device('cuda:0')
+device = check_cuda()
 
 class NCA(nn.Module):
     def __init__(self, n_channel, n_filter):
@@ -16,7 +17,7 @@ class NCA(nn.Module):
         #torch.nn.init.zeros_(self.fc2.bias)
     
     def forward(self, x):
-      b,c,h,w = x.size()
+      b, c, h, w = x.size()
       
       #pVector = perception(x)  
       pVector = perception_2(x)  
