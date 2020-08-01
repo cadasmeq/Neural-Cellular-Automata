@@ -43,7 +43,7 @@ optimizer = optim.Adam(model.parameters(), lr=lr)
 scheduler = StepLR(optimizer, step_size=500, gamma=0.1)
 
 # DEFINING Y (TARGET IMAGE)
-target_img = "./input/cynda.png"
+target_img = "./input/owl.png"
 target = batch_target(target_img, b).to(device)
 
 # TRAINING PROCESS

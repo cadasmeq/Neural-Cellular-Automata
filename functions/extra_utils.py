@@ -34,10 +34,10 @@ def pngs2gif(images_folder, export_to=None, file_name=None):
     imageio.mimsave(output_path, images)
     print("Gif created in {}".format(output_path))
 
-png_folder = './training_output/steps_epoch_333'
+png_folder = './training_output/steps_epoch_999'
 gif_folder = "./training_output/gifs"
-pngs2gif(png_folder, export_to=gif_folder, file_name="cynda_epoch_333.gif")
-
+pngs2gif(png_folder, export_to=gif_folder, file_name="fail2_owl_epoch_999.gif")
+ 
 def create_df(weights_path):
         
     model_name = 'NCA'
@@ -45,12 +45,16 @@ def create_df(weights_path):
     epoch = 100
     loss = 0.325
     lr = 2e-3
+    r_seed = 24
+    r_steeps = 24
 
     data = {'id':[uid],
             'model_name':[model_name],
             'epoch':[epoch],
             'loss':[loss],
             'learning_rate':[lr],
+            'r_seed':[r_seed],
+            'r_steps':[r_steps],
             }
 
     df = pd.DataFrame(data, columns=['id', 'model_name', 'epoch', 'loss', 'learning_rate'])
@@ -72,7 +76,6 @@ def create_df(weights_path):
     3) file_name: If this param didn't be set, by default, the gif's name will be the same of the folder that contains the input images
     -------------------------------------------------------------------
     Example 1):
-
     input = './outputs/sequences'
     export_folder = './myPath'
     gif_name = 'seq.gif'
@@ -84,7 +87,6 @@ def create_df(weights_path):
     output >> "./myPath/seq.gif"
      -------------------------------------------------------------------
     Example 2)
-
     input = './outputs/sequences'
     
     pngs2gif(input)
