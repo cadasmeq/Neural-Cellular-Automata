@@ -1,4 +1,4 @@
-# # Growning Neural Cellular Automata (Python)
+# Growning Neural Cellular Automata (Python)
 Based en in the [Growing Neural Cellular Automata](https://distill.pub/2020/growing-ca/) of [distill.pub](https://distill.pub/). I started from scratch a version of __Neural Cellular Automata__ [__NCA__] using ```Pytorch``` as Framework for Machine Learning.
 
 This project started as a way to practice my  python  skills after to watched a Spanish Youtuber named [DotTCSV](https://www.youtube.com/dotcsv) who coded the same project from scratch. 
