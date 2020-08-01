@@ -63,7 +63,7 @@ for epoch in range(epochs):
           steps_folder = os.path.join(results_folder, step_folder)
           os.mkdir(steps_folder) if not os.path.exists(steps_folder) else ""
 
-          step_file = 'epoch_{}_step{}_{}.png'.format(epoch, step, n_steps)
+          step_file = '{}_{}.png'.format(step, n_steps)
           step_path = os.path.join(steps_folder, step_file)
 
           fig = plt.figure()
@@ -82,9 +82,9 @@ for epoch in range(epochs):
 
   # EXPORTING: PREDICTION IMAGE
   if epoch % save_outpus_time == 0:
-    
+
         fig = plt.figure()
-        output_file = 'output_epoch_{}_loss_{}.png'.format(epoch, str(loss.item())[0:6])
+        output_file = 'epoch_{}_loss_{}.png'.format(epoch, str(loss.item())[0:6])
         output_path = os.path.join(results_folder, output_file)
         plt.imshow(unbatch_tensor(output))
         plt.savefig(output_path, bbox_inches='tight', dpi=200)
