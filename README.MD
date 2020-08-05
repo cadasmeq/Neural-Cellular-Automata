@@ -20,7 +20,7 @@ This repository have a model that allows you train a Neural Cellular Automata su
 At the current version, this repo have a lot of dirty code that eventually will be cleaned. Also,  Model have a few functional issues during the training process that I would like to investigate indeep if those correspond to the main architecture or just simply it's me failing in fine tunning the model's details. I'll add these observations as a topic in TO:DO if you want to have any knowledge of them. Once fixed it, I'll continue with rest of Experiments
 
 # # Pre-requisites 📋
-I used  ```Python 3.7 ``` and the next list of packages. Also ```/input/image.png```  of size ```32x32``` with without solid color in background (transparent).
+I used  ```Python 3.7 ``` and the next list of packages. Also an ```/input/image.png```  of size ```32x32``` without solid color in background (alpha channel = 0).
 ```
 numpy==1.18.1
 matplotlib==3.1.3
